@@ -17,13 +17,14 @@ export function ContactCTA() {
   const [budget, setBudget] = useState<string>(budgets[1]);
   const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") || "").trim();
     const contact = String(data.get("contact") || "").trim();
     const message = String(data.get("message") || "").trim();
+    const company = String(data.get("company") || ""); // honeypot
 
     if (!name || !contact) {
       setError("Iltimos, ism va aloqa ma'lumotini kiriting.");
@@ -32,18 +33,26 @@ export function ContactCTA() {
     setError(null);
     setStatus("sending");
 
-    // No backend wired yet — compose an email as a graceful fallback.
-    // Ulash uchun: bu yerga o'zingizning API endpoint yoki Formspree/Telegram botni qo'shing.
-    const subject = encodeURIComponent(`Yangi loyiha so'rovi — ${name}`);
-    const body = encodeURIComponent(
-      `Ism: ${name}\nAloqa: ${contact}\nByudjet: ${budget}\n\nXabar:\n${message || "—"}`,
-    );
-
-    window.setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, contact, budget, message, company }),
+      });
+      const json = (await res.json()) as { ok: boolean; error?: string };
+      if (!res.ok || !json.ok) {
+        throw new Error(json.error || "Yuborishda xatolik.");
+      }
       setStatus("sent");
-      window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
       form.reset();
-    }, 700);
+    } catch (err) {
+      setStatus("idle");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Yuborilmadi. Iltimos, qayta urinib ko'ring yoki Telegram orqali yozing.",
+      );
+    }
   }
 
   const inputCls =
@@ -106,9 +115,9 @@ export function ContactCTA() {
                     <span className="grid h-10 w-10 place-items-center rounded-full bg-accent-500/20 text-accent-100">
                       <Check className="h-5 w-5" />
                     </span>
-                    <h3 className="font-display text-xl text-white">Rahmat! So&apos;rov tayyor.</h3>
+                    <h3 className="font-display text-xl text-white">Rahmat! So&apos;rovingiz yuborildi.</h3>
                     <p className="max-w-xs text-[15px] text-white/55">
-                      Email ilovangiz ochildi. Yuborishni tasdiqlang — tez orada bog&apos;lanaman.
+                      Xabaringiz menga yetib bordi. Tez orada siz bilan bog&apos;lanaman.
                     </p>
                     <button
                       type="button"
@@ -127,6 +136,15 @@ export function ContactCTA() {
                     className="flex flex-col gap-2"
                     noValidate
                   >
+                    {/* Honeypot — odamlar ko'rmaydi, botlar to'ldiradi */}
+                    <input
+                      type="text"
+                      name="company"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -left-[9999px] h-0 w-0 opacity-0"
+                    />
                     <div className="grid gap-2 sm:grid-cols-2">
                       <div className="flex flex-col gap-1">
                         <label htmlFor="name" className="text-[13px] text-white/50">
