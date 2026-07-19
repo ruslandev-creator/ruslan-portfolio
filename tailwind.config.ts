@@ -42,7 +42,7 @@ const config: Config = {
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
       },
       fontSize: {
-        "display-xl": ["clamp(2rem, 8vw, 5.5rem)", { lineHeight: "1.05", letterSpacing: "-0.05em" }],
+        "display-xl": ["clamp(2rem, 5.5vw, 3.5rem)", { lineHeight: "1.08", letterSpacing: "-0.045em" }],
         "display-lg": ["clamp(2.5rem, 5.5vw, 4.25rem)", { lineHeight: "1.05", letterSpacing: "-0.045em" }],
         "heading": ["clamp(2.5rem, 5.8vw, 4.5rem)", { lineHeight: "1.03", letterSpacing: "-0.045em" }],
         "subheading": ["18px", { lineHeight: "1.6", letterSpacing: "-0.01em" }],
