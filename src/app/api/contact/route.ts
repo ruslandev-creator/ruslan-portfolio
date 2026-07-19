@@ -39,7 +39,8 @@ export async function POST(req: Request) {
   }
 
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  // TELEGRAM_CHAT_ID — kerakli nom; TELEGRAM_BOT_ID — muqobil (agar shunday nomlangan bo'lsa)
+  const chatId = process.env.TELEGRAM_CHAT_ID ?? process.env.TELEGRAM_BOT_ID;
 
   if (!token || !chatId) {
     console.error("TELEGRAM_BOT_TOKEN yoki TELEGRAM_CHAT_ID sozlanmagan.");
