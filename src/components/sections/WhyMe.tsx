@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/ui/Reveal";
 import { ArrowRight } from "@/components/ui/Icons";
+import { Scramble } from "@/components/ui/Scramble";
 import { useContactModal } from "@/components/providers/ContactModal";
 import { features } from "@/lib/content";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
@@ -33,7 +34,7 @@ export function WhyMe() {
             </Reveal>
             <Reveal delay={0.24}>
               <button type="button" onClick={open} className="btn-primary mt-8">
-                Ishni boshlash
+                <Scramble text="Ishni boshlash" duration={300} />
                 <ArrowRight className="h-4 w-4" />
               </button>
             </Reveal>

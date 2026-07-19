@@ -24,14 +24,14 @@ export function Process() {
           description="Aniq, tez va shaffof jarayon — atigi 4 qadam. Har bir bosqichda loyiha qayerdaligini bilib turasiz."
         />
 
-        <div ref={ref} className="relative mt-16">
+        <div ref={ref} className="relative mt-20">
           {/* Connecting rail with scroll-driven fill */}
-          <div className="absolute left-16 top-3 h-[calc(100%-2rem)] w-px bg-line sm:left-20">
+          <div className="absolute left-20 top-5 h-[calc(100%-3rem)] w-px bg-line sm:left-28">
             <motion.div style={{ scaleY: fill }} className="h-full w-full origin-top bg-white/60" />
           </div>
 
           <motion.ol
-            variants={stagger(0.05, 0.14)}
+            variants={stagger(0.05, 0.16)}
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
@@ -41,20 +41,20 @@ export function Process() {
               <motion.li
                 key={step.no}
                 variants={fadeUp}
-                className="group relative grid grid-cols-[4rem_1fr] gap-x-8 pb-16 last:pb-0 sm:grid-cols-[5rem_1fr] sm:gap-x-12 md:pb-24"
+                className="group relative grid grid-cols-[5rem_1fr] gap-x-10 pb-20 last:pb-0 sm:grid-cols-[7rem_1fr] sm:gap-x-20 md:pb-32"
               >
                 {/* Large step number */}
-                <span className="text-right font-display text-4xl leading-none tracking-tightest text-white/15 transition-colors duration-500 group-hover:text-white sm:text-6xl">
+                <span className="text-right font-display text-5xl leading-none tracking-tightest text-white/15 transition-colors duration-500 group-hover:text-white sm:text-7xl">
                   {step.no}
                 </span>
 
                 {/* Node on the rail */}
-                <span className="absolute left-16 top-2.5 h-2.5 w-2.5 -translate-x-1/2 border border-white bg-ink-950 transition-colors duration-500 group-hover:bg-white sm:left-20" />
+                <span className="absolute left-20 top-3 h-2.5 w-2.5 -translate-x-1/2 border border-white bg-ink-950 transition-colors duration-500 group-hover:bg-white sm:left-28" />
 
                 {/* Content */}
-                <div className="pt-1">
-                  <h3 className="font-display text-2xl text-white">{step.title}</h3>
-                  <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted">
+                <div className="pt-2">
+                  <h3 className="font-display text-2xl text-white sm:text-3xl">{step.title}</h3>
+                  <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted">
                     {step.description}
                   </p>
                 </div>

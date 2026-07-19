@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { site, nav } from "@/lib/site";
 import { Phone } from "@/components/ui/Icons";
+import { Scramble } from "@/components/ui/Scramble";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -43,7 +44,7 @@ export function Navbar() {
               href={item.href}
               className="text-[14px] text-muted transition-colors duration-300 hover:text-white"
             >
-              {item.label}
+              <Scramble text={item.label} duration={300} />
             </a>
           ))}
         </nav>
@@ -51,7 +52,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <a href={site.phoneHref} className="btn-primary hidden px-4 py-2 text-[14px] sm:inline-flex">
             <Phone className="h-4 w-4" />
-            Bog&apos;lanish
+            <Scramble text="Bog'lanish" duration={300} />
           </a>
 
           <button

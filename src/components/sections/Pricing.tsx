@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Check } from "@/components/ui/Icons";
+import { Scramble } from "@/components/ui/Scramble";
 import { useContactModal } from "@/components/providers/ContactModal";
 import { plans } from "@/lib/content";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
@@ -69,7 +70,7 @@ export function Pricing() {
                 onClick={open}
                 className={cn("mt-8 w-full", plan.featured ? "btn-primary" : "btn-ghost")}
               >
-                {plan.cta}
+                <Scramble text={plan.cta} duration={300} />
               </button>
             </motion.div>
           ))}

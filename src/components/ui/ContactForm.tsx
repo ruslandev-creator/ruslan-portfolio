@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ArrowUpRight } from "@/components/ui/Icons";
+import { Scramble } from "@/components/ui/Scramble";
 import { cn } from "@/lib/utils";
 
 type Status = "idle" | "sending" | "sent";
@@ -114,7 +115,7 @@ export function ContactForm({ className }: { className?: string }) {
             disabled={status === "sending"}
             className="btn-primary mt-1 w-full text-[16px]"
           >
-            {status === "sending" ? "Yuborilmoqda…" : "Yuborish"}
+            {status === "sending" ? "Yuborilmoqda…" : <Scramble text="Yuborish" duration={300} />}
             {status !== "sending" && <ArrowUpRight className="h-4 w-4" />}
           </button>
         </motion.form>

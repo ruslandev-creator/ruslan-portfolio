@@ -68,7 +68,7 @@
   }
 
   .section-pad {
-    @apply py-24 sm:py-28 lg:py-32;
+    @apply py-28 sm:py-32 lg:py-40;
   }
 
   /* Full-bleed hairline that aligns to the container edges */
