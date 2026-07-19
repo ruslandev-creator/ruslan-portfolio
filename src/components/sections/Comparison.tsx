@@ -17,7 +17,6 @@ export function Comparison() {
     <section id="taqqoslash" className="section-pad relative border-t border-line">
       <div className="container-page">
         <SectionHeading
-          align="left"
           icon={GitCompare}
           eyebrow="Taqqoslash"
           title={<>Oddiy sayt va premium landing</>}

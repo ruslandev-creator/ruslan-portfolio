@@ -15,7 +15,6 @@ export function FAQ() {
     <section id="faq" className="section-pad relative border-t border-line">
       <div className="container-page">
         <SectionHeading
-          align="left"
           icon={CircleHelp}
           eyebrow="Savol-javob"
           title={<>Ko&apos;p beriladigan savollar</>}

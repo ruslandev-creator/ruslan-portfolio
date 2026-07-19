@@ -17,7 +17,6 @@ export function Pricing() {
     <section id="narxlar" className="section-pad relative border-t border-line">
       <div className="container-page">
         <SectionHeading
-          align="left"
           icon={BadgeDollarSign}
           eyebrow="Narxlar"
           title={<>Aniq tariflar, yashirin to&apos;lovsiz</>}

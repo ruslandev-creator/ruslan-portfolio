@@ -27,7 +27,6 @@ export function Process() {
     <section id="jarayon" className="section-pad relative border-t border-line">
       <div className="container-page">
         <SectionHeading
-          align="left"
           icon={Workflow}
           eyebrow="Ishlash jarayoni"
           title={<>Fikrdan ishga tushirishgacha</>}

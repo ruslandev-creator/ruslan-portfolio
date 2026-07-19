@@ -9,57 +9,39 @@ type SectionHeadingProps = {
   icon: LucideIcon;
   title: ReactNode;
   description?: ReactNode;
-  align?: "left" | "center";
   className?: string;
 };
 
 /**
- * Har bir blok uchun bir xil sarlavha tuzilishi:
- *   Blok nomi (eyebrow) -> Heading (50–65px) -> Subheading (18px)
- * Heading va subheading orasidagi masofa hamma joyda bir xil.
+ * Every section opens like a new chapter:
+ *   [ badge ]  →  large dominant heading (~55–60px)  →  centered description.
+ * Always center-aligned; generous spacing between heading and description.
  */
 export function SectionHeading({
   eyebrow,
   icon,
   title,
   description,
-  align = "center",
   className,
 }: SectionHeadingProps) {
-  const centered = align === "center";
   return (
-    <div
-      className={cn(
-        "flex flex-col",
-        centered ? "items-center text-center" : "items-start text-left",
-        className,
-      )}
-    >
-      {/* Blok nomi — badge */}
-      <Reveal className="mb-6">
+    <div className={cn("flex flex-col items-center text-center", className)}>
+      <Reveal className="mb-8">
         <SectionBadge icon={icon} label={eyebrow} />
       </Reveal>
 
-      {/* Heading */}
       <Reveal
         as="div"
         delay={0.08}
-        className={cn(
-          "font-display text-heading text-gradient",
-          centered ? "max-w-4xl" : "max-w-3xl",
-        )}
+        className="mx-auto max-w-[760px] font-display text-heading font-semibold text-white"
       >
         {title}
       </Reveal>
 
-      {/* Subheading — heading bilan bir xil masofada */}
       {description && (
         <Reveal
           delay={0.16}
-          className={cn(
-            "mt-6 text-subheading text-balance text-muted",
-            centered ? "max-w-prose" : "max-w-xl",
-          )}
+          className="mx-auto mt-8 max-w-[680px] text-balance text-subheading text-muted"
         >
           {description}
         </Reveal>

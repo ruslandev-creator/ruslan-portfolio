@@ -1,17 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Award, Clock3, Sparkles, ShieldCheck } from "lucide-react";
 import { GridBackdrop } from "@/components/ui/Backgrounds";
-import { HeroArt } from "@/components/ui/HeroArt";
 import { ArrowRight, Telegram } from "@/components/ui/Icons";
 import { Scramble } from "@/components/ui/Scramble";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { useContactModal } from "@/components/providers/ContactModal";
 import { site } from "@/lib/site";
 
-const stats = [
-  { value: "50+", label: "Muvaffaqiyatli loyihalar", sub: "Turli bizneslar uchun yaratilgan" },
-  { value: "8 soatdan", label: "Tezkor topshirish", sub: null },
-  { value: "24 soat", label: "Doimiy aloqa va qo'llab-quvvatlash", sub: null },
+const bullets = [
+  { icon: Award, label: "50+ Yakunlangan loyihalar" },
+  { icon: Clock3, label: "8 soatda tayyor" },
+  { icon: Sparkles, label: "Premium dizayn" },
+  { icon: ShieldCheck, label: "Sifat kafolati" },
 ];
 
 export function Hero() {
@@ -20,87 +22,69 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-16"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden pt-16 text-center"
     >
       <GridBackdrop />
 
-      <div className="container-page relative z-10">
-        <div className="grid grid-cols-12 items-center gap-y-16 lg:gap-x-8">
-          {/* Content — one shared left axis */}
-          <div className="col-span-12 flex flex-col items-start lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-              className="inline-flex items-center gap-2 border border-line px-3 py-2 text-[13px] text-muted"
-            >
-              <span className="h-1.5 w-1.5 bg-white" />
-              Yoqmasa — pul qaytariladi
-            </motion.div>
+      <div className="container-page relative z-10 flex flex-col items-center">
+        {/* Badge */}
+        <motion.span
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+          className="inline-flex items-center gap-2 border border-[#2A2A2A] px-4 py-2 text-[13px] tracking-[0.04em] text-muted"
+        >
+          <span className="h-1.5 w-1.5 bg-white" />
+          Yoqmasa — pul qaytariladi
+        </motion.span>
 
-            {/* Headline — exactly two lines, scramble once on load */}
-            <h1 className="mt-8 font-display text-display-xl font-medium text-white">
-              <Scramble text="8 soatda tayyor" playOnMount duration={720} className="block" />
-              <Scramble text="zamonaviy sayt" playOnMount duration={720} className="block" />
-            </h1>
+        {/* Headline — exactly two lines, scramble once on load */}
+        <h1 className="mt-8 font-display text-display-xl font-medium text-white">
+          <Scramble text="8 soatda tayyor" playOnMount duration={720} className="block" />
+          <Scramble text="zamonaviy sayt" playOnMount duration={720} className="block" />
+        </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.55 }}
-              className="mt-8 max-w-xl text-subheading text-muted"
-            >
-              Biz yaratgan saytlar boshqa saytlardan{" "}
-              <span className="text-white">3 barobar tezroq</span> ishlaydi. Biznesingiz qimmat va
-              ishonchli ko&apos;rinadi.
-            </motion.p>
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.55 }}
+          className="mx-auto mt-8 max-w-2xl text-subheading text-muted"
+        >
+          Biz yaratgan saytlar boshqa saytlardan{" "}
+          <span className="text-white">3 barobar tezroq</span> ishlaydi. Biznesingiz qimmat va
+          ishonchli ko&apos;rinadi.
+        </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.65 }}
-              className="mt-8 flex flex-col gap-2 sm:flex-row"
-            >
-              <button type="button" onClick={open} className="btn-primary">
-                <Scramble text="Ishni boshlash" duration={300} />
-                <ArrowRight className="h-4 w-4" />
-              </button>
-              <a href={site.telegram} target="_blank" rel="noopener noreferrer" className="btn-ghost">
-                <Telegram className="h-[18px] w-[18px]" />
-                <Scramble text="Telegramdan yozish" duration={300} />
-              </a>
-            </motion.div>
-          </div>
+        {/* CTAs — centered, equal height */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.65 }}
+          className="mt-10 flex flex-col items-center justify-center gap-2 sm:flex-row"
+        >
+          <button type="button" onClick={open} className="btn-primary">
+            <Scramble text="Ishni boshlash" duration={300} />
+            <ArrowRight className="h-4 w-4" />
+          </button>
+          <a href={site.telegram} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+            <Telegram className="h-[18px] w-[18px]" />
+            <Scramble text="Telegramdan yozish" duration={300} />
+          </a>
+        </motion.div>
 
-          {/* Illustration */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
-            className="col-span-12 hidden lg:col-span-5 lg:block"
-          >
-            <HeroArt className="mx-auto max-w-[440px]" />
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Stats — bordered technical bar */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.85 }}
-        className="container-page relative z-10 mt-20"
-      >
-        <dl className="grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-3">
-          {stats.map((s) => (
-            <div key={s.value} className="bg-ink-950 p-6">
-              <dt className="text-[13px] text-muted">{s.label}</dt>
-              <dd className="mt-3 font-display text-3xl text-white">{s.value}</dd>
-              {s.sub && <dd className="mt-2 text-[12px] text-muted/70">{s.sub}</dd>}
-            </div>
+        {/* Hero bullets — 4 badges in one centered row */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.85 }}
+          className="mt-16 flex flex-wrap items-center justify-center gap-3"
+        >
+          {bullets.map((b) => (
+            <SectionBadge key={b.label} size="lg" icon={b.icon} label={b.label} />
           ))}
-        </dl>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }

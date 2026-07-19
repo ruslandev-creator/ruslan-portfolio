@@ -2,22 +2,26 @@ import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * Consistent section label: a sharp-cornered bordered badge with a
- * monochrome Lucide icon. [ icon ] Label
+ * Consistent bordered label badge: [ icon ] Label
+ * Sharp corners, 1px #2A2A2A border, transparent, monochrome Lucide icon.
  */
 export function SectionBadge({
   icon: Icon,
   label,
+  size = "sm",
   className,
 }: {
   icon: LucideIcon;
   label: string;
+  size?: "sm" | "lg";
   className?: string;
 }) {
+  const sizing = size === "lg" ? "h-[42px] px-5" : "h-9 px-4";
   return (
     <span
       className={cn(
-        "inline-flex h-9 items-center gap-2 border border-[#2A2A2A] bg-transparent px-4 text-[13px] font-medium tracking-[0.04em] text-[#B5B5B5]",
+        "inline-flex items-center gap-2 border border-[#2A2A2A] bg-transparent text-[13px] font-medium tracking-[0.04em] text-[#B5B5B5]",
+        sizing,
         className,
       )}
     >

@@ -40,7 +40,6 @@ export function Portfolio() {
     <section id="portfolio" className="section-pad relative border-t border-line">
       <div className="container-page">
         <SectionHeading
-          align="left"
           icon={BriefcaseBusiness}
           eyebrow="Portfolio"
           title={<>So&apos;nggi ishlar</>}
