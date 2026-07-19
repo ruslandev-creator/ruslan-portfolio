@@ -10,7 +10,7 @@ export const site = {
   location: "Toshkent, O'zbekiston",
   phone: "+998 70 018 88 60",
   phoneHref: "tel:+998700188860",
-  telegram: "https://t.me/username", // <- Telegram username'ingizni shu yerga qo'ying
+  telegram: "https://t.me/ruscodit",
   instagram: "https://instagram.com/username",
   description:
     "O'zbekiston bizneslari uchun premium landing va veb-saytlar. Ishonch uyg'otadigan, tez va sotadigan dizayn.",
