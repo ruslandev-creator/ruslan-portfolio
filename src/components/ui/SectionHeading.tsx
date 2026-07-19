@@ -10,7 +10,11 @@ type SectionHeadingProps = {
   className?: string;
 };
 
-/** Consistent section header: eyebrow → glowing rule → title → description. */
+/**
+ * Har bir blok uchun bir xil sarlavha tuzilishi:
+ *   Blok nomi (eyebrow) -> Heading (50–65px) -> Subheading (18px)
+ * Heading va subheading orasidagi masofa hamma joyda bir xil.
+ */
 export function SectionHeading({
   eyebrow,
   title,
@@ -22,12 +26,13 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "flex flex-col gap-2",
+        "flex flex-col",
         centered ? "items-center text-center" : "items-start text-left",
         className,
       )}
     >
-      <Reveal className="flex items-center gap-2">
+      {/* Blok nomi */}
+      <Reveal className="mb-4 flex items-center gap-2">
         <span className="h-px w-6 bg-gradient-to-r from-transparent to-accent-400/70" />
         <span className="eyebrow">{eyebrow}</span>
         {centered && (
@@ -35,19 +40,24 @@ export function SectionHeading({
         )}
       </Reveal>
 
+      {/* Heading */}
       <Reveal
         as="div"
-        delay={0.06}
-        className={cn("text-display-md text-gradient", centered ? "max-w-3xl" : "max-w-2xl")}
+        delay={0.08}
+        className={cn(
+          "font-display text-heading text-gradient",
+          centered ? "max-w-4xl" : "max-w-3xl",
+        )}
       >
         {title}
       </Reveal>
 
+      {/* Subheading — heading bilan bir xil masofada */}
       {description && (
         <Reveal
-          delay={0.12}
+          delay={0.16}
           className={cn(
-            "mt-1 text-balance text-[17px] leading-relaxed text-white/55",
+            "mt-5 text-subheading text-balance text-white/55",
             centered ? "max-w-prose" : "max-w-xl",
           )}
         >

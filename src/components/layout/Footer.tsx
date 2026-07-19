@@ -46,10 +46,10 @@ export function Footer() {
             <ul className="flex flex-col gap-1.5 text-[15px]">
               <li>
                 <a
-                  href={`mailto:${site.email}`}
+                  href={site.phoneHref}
                   className="text-white/55 transition-colors hover:text-white"
                 >
-                  {site.email}
+                  {site.phone}
                 </a>
               </li>
               <li>

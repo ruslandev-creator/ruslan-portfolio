@@ -8,9 +8,9 @@ export const site = {
   role: "Premium veb-dizayner",
   domain: "https://ruslan.studio",
   location: "Toshkent, O'zbekiston",
-  email: "muxriddin.ads@gmail.com",
-  phone: "+998 90 000 00 00",
-  telegram: "https://t.me/username",
+  phone: "+998 70 018 88 60",
+  phoneHref: "tel:+998700188860",
+  telegram: "https://t.me/username", // <- Telegram username'ingizni shu yerga qo'ying
   instagram: "https://instagram.com/username",
   description:
     "O'zbekiston bizneslari uchun premium landing va veb-saytlar. Ishonch uyg'otadigan, tez va sotadigan dizayn.",

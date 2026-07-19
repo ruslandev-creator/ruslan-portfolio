@@ -38,13 +38,18 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "var(--font-sans)", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-geist-mono)", "var(--font-geist-sans)", "monospace"],
+        mono: ["var(--font-geist-mono)", "monospace"],
       },
       fontSize: {
-        "display-xl": ["clamp(2.75rem, 7vw, 6.25rem)", { lineHeight: "0.98", letterSpacing: "-0.03em" }],
-        "display-lg": ["clamp(2.25rem, 5vw, 4.25rem)", { lineHeight: "1.02", letterSpacing: "-0.025em" }],
-        "display-md": ["clamp(1.9rem, 3.6vw, 3rem)", { lineHeight: "1.08", letterSpacing: "-0.02em" }],
+        // Hero headline (Geist Mono is wide — keep mobile min small)
+        "display-xl": ["clamp(2rem, 8vw, 5rem)", { lineHeight: "1.14", letterSpacing: "-0.04em" }],
+        "display-lg": ["clamp(2.25rem, 5vw, 3.75rem)", { lineHeight: "1.1", letterSpacing: "-0.03em" }],
+        // Section headings — target 50–65px on desktop, safe on mobile
+        "heading": ["clamp(2.25rem, 5vw, 4.0625rem)", { lineHeight: "1.1", letterSpacing: "-0.03em" }],
+        // Consistent subheading — 18px
+        "subheading": ["18px", { lineHeight: "1.6" }],
       },
       borderRadius: {
         "2xl": "20px",

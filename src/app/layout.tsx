@@ -1,22 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { ContactModalProvider } from "@/components/providers/ContactModal";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { site } from "@/lib/site";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
@@ -69,7 +59,7 @@ const jsonLd = {
   name: site.name,
   description: site.description,
   url: site.domain,
-  email: site.email,
+  telephone: site.phone,
   areaServed: "UZ",
   address: {
     "@type": "PostalAddress",
@@ -81,8 +71,8 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="uz" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="noise-fixed min-h-screen selection:bg-accent-500/30">
+    <html lang="uz" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className="min-h-screen selection:bg-accent-500/30">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -94,9 +84,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Asosiy kontentga o&apos;tish
         </a>
         <SmoothScroll>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <ContactModalProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </ContactModalProvider>
         </SmoothScroll>
       </body>
     </html>

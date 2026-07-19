@@ -50,12 +50,12 @@ export async function POST(req: Request) {
     );
   }
 
-  const text =
-    "🆕 <b>Yangi loyiha so'rovi</b>\n\n" +
+  let text =
+    "🆕 <b>Yangi so'rov</b>\n\n" +
     `👤 <b>Ism:</b> ${escapeHtml(name)}\n` +
-    `📞 <b>Aloqa:</b> ${escapeHtml(contact)}\n` +
-    `💰 <b>Byudjet:</b> ${escapeHtml(budget || "—")}\n\n` +
-    `📝 <b>Xabar:</b>\n${escapeHtml(message || "—")}`;
+    `📞 <b>Telefon:</b> ${escapeHtml(contact)}`;
+  if (budget) text += `\n💰 <b>Byudjet:</b> ${escapeHtml(budget)}`;
+  if (message) text += `\n\n📝 <b>Xabar:</b>\n${escapeHtml(message)}`;
 
   try {
     const tg = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {

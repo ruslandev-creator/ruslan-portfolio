@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { site, nav } from "@/lib/site";
-import { Logo, ArrowUpRight } from "@/components/ui/Icons";
+import { Logo, ArrowUpRight, Phone } from "@/components/ui/Icons";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -54,9 +54,12 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-1">
-          <a href="#aloqa" className="btn-primary hidden px-2.5 py-1 text-[14px] sm:inline-flex">
-            Loyihani boshlash
-            <ArrowUpRight className="h-3.5 w-3.5" />
+          <a
+            href={site.phoneHref}
+            className="btn-primary hidden px-3 py-1.5 text-[14px] sm:inline-flex"
+          >
+            <Phone className="h-[15px] w-[15px]" />
+            Bog&apos;lanish
           </a>
 
           <button
@@ -115,12 +118,12 @@ export function Navbar() {
               ))}
             </ul>
             <a
-              href="#aloqa"
+              href={site.phoneHref}
               onClick={() => setOpen(false)}
               className="btn-primary mt-1 w-full"
             >
-              Loyihani boshlash
-              <ArrowUpRight className="h-4 w-4" />
+              <Phone className="h-4 w-4" />
+              Bog&apos;lanish
             </a>
           </motion.div>
         )}

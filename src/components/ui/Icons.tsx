@@ -84,6 +84,19 @@ export const Gem = (p: IconProps) => (
   </svg>
 );
 
+export const Phone = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M6.5 3.5h-2A1.5 1.5 0 0 0 3 5c0 8.3 6.7 15 15 15a1.5 1.5 0 0 0 1.5-1.5v-2a1.5 1.5 0 0 0-1.2-1.47l-2.6-.52a1.5 1.5 0 0 0-1.5.62l-.6.86A11.5 11.5 0 0 1 8 8l.86-.6a1.5 1.5 0 0 0 .62-1.5l-.52-2.6A1.5 1.5 0 0 0 7.5 2.5" />
+  </svg>
+);
+
+// Telegram — filled paper-plane (uses fill, not stroke)
+export const Telegram = (p: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...p}>
+    <path d="M21.94 4.66a1.2 1.2 0 0 0-1.24-.2L3.4 11.2c-.86.34-.83 1.58.05 1.87l4.34 1.42 1.64 5.02c.2.62 1 .8 1.46.33l2.4-2.43 4.3 3.16c.5.37 1.22.1 1.36-.5l3.02-14.2a1.2 1.2 0 0 0-.48-1.23ZM9.9 14.2l-.6 3.9-.9-2.9 7.02-6.3-5.52 5.3Z" />
+  </svg>
+);
+
 export const iconMap = {
   spark: Spark,
   bolt: Bolt,

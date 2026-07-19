@@ -14,7 +14,6 @@ function ProjectCard({ project }: { project: Project }) {
       <SpotlightCard className="h-full">
         {/* Preview */}
         <div className={cn("relative aspect-[16/10] overflow-hidden bg-gradient-to-br", project.accent)}>
-          <div className="absolute inset-0 noise opacity-60" />
           <div className="absolute left-1/2 top-[-40%] h-48 w-48 -translate-x-1/2 rounded-full bg-white/10 blur-[70px]" />
 
           {/* mini site preview */}
