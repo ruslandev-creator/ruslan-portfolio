@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { site, nav } from "@/lib/site";
-import { Logo, Phone } from "@/components/ui/Icons";
+import { Phone } from "@/components/ui/Icons";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -32,11 +32,8 @@ export function Navbar() {
       )}
     >
       <div className="container-page flex h-16 items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 text-white" aria-label={site.name}>
-          <Logo className="h-4 w-4" />
-          <span className="font-display text-[16px] font-semibold tracking-tight">
-            {site.wordmark}
-          </span>
+        <a href="#top" className="flex items-center" aria-label={site.name}>
+          <img src="/logo.svg" alt={site.name} className="h-5 w-auto" />
         </a>
 
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">

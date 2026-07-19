@@ -3,8 +3,8 @@
  * Brend nomi, aloqa ma'lumotlari va navigatsiyani shu yerdan o'zgartiring.
  */
 export const site = {
-  name: "Ruslan",
-  wordmark: "RUSLAN",
+  name: "Ruscodit",
+  wordmark: "Ruscodit",
   role: "Premium veb-dizayner",
   domain: "https://ruslan.studio",
   location: "Toshkent, O'zbekiston",

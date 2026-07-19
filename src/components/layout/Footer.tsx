@@ -1,5 +1,4 @@
 import { site, nav } from "@/lib/site";
-import { Logo } from "@/components/ui/Icons";
 
 export function Footer() {
   const year = 2026;
@@ -9,12 +8,7 @@ export function Footer() {
       <div className="container-page grid grid-cols-12 gap-y-10 py-16">
         {/* Brand */}
         <div className="col-span-12 md:col-span-5">
-          <div className="flex items-center gap-2 text-white">
-            <Logo className="h-5 w-5" />
-            <span className="font-display text-lg font-semibold tracking-tight">
-              {site.wordmark}
-            </span>
-          </div>
+          <img src="/logo.svg" alt={site.name} className="h-6 w-auto" />
           <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-muted">
             {site.description}
           </p>
