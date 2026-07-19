@@ -59,20 +59,13 @@ export function ContactForm({ className }: { className?: string }) {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className={cn("flex flex-col items-center gap-2 px-2 py-8 text-center", className)}
         >
-          <span className="grid h-12 w-12 place-items-center rounded-full bg-accent-500/20 text-accent-100">
+          <span className="grid h-12 w-12 place-items-center rounded-full bg-accent-500/15 text-accent-100">
             <Check className="h-6 w-6" />
           </span>
-          <h3 className="font-display text-xl text-white">Rahmat! Qabul qilindi.</h3>
+          <h3 className="font-display text-xl text-white">Zayavka qabul qilindi</h3>
           <p className="max-w-xs text-[15px] text-white/55">
-            So&apos;rovingiz menga yetib bordi. Tez orada siz bilan bog&apos;lanaman.
+            5 daqiqada aloqaga chiqaman.
           </p>
-          <button
-            type="button"
-            onClick={() => setStatus("idle")}
-            className="btn-ghost mt-2 px-3 py-1.5 text-[14px]"
-          >
-            Yana yuborish
-          </button>
         </motion.div>
       ) : (
         <motion.form

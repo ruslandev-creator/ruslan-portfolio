@@ -7,49 +7,50 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // Tailwind's default scale is a 4px base that lands cleanly on an 8px
-      // rhythm; we keep it and add a couple of larger steps for premium spacing.
       spacing: {
-        18: "4.5rem", // 72px
-        22: "5.5rem", // 88px
+        18: "4.5rem",
+        22: "5.5rem",
       },
       colors: {
-        // Deep, slightly-blue near-black canvas
+        // Strict two-tone monochrome system: #191919 (dark) / #F4F4F4 (light)
         ink: {
-          950: "#050609",
-          900: "#08090F",
-          800: "#0C0E16",
-          700: "#12151F",
-          600: "#191D2A",
+          950: "#141414",
+          900: "#191919", // main background
+          800: "#1F1F1F",
+          700: "#262626",
+          600: "#303030",
         },
         line: {
-          soft: "rgba(255,255,255,0.06)",
-          DEFAULT: "rgba(255,255,255,0.10)",
-          strong: "rgba(255,255,255,0.16)",
+          soft: "rgba(244,244,244,0.06)",
+          DEFAULT: "rgba(244,244,244,0.10)",
+          strong: "rgba(244,244,244,0.18)",
         },
-        // Restrained blue accent — the only chromatic color in the system
+        // "accent" is now light/neutral — keeps the whole palette monochrome
         accent: {
-          50: "#EAF2FF",
-          200: "#B9D2FF",
-          300: "#8EB6FF",
-          400: "#5B93FF",
-          500: "#3B82F6",
-          600: "#2B6CE0",
+          50: "#FFFFFF",
+          100: "#FAFAFA",
+          200: "#ECECEC",
+          300: "#CFCFCF",
+          400: "#F4F4F4",
+          500: "#F4F4F4",
+          600: "#C4C4C4",
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-geist-mono)", "var(--font-geist-sans)", "monospace"],
-        mono: ["var(--font-geist-mono)", "monospace"],
+        // Geist Mono everywhere
+        sans: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        display: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
       },
       fontSize: {
-        // Hero headline (Geist Mono is wide — keep mobile min small)
-        "display-xl": ["clamp(2rem, 8vw, 5rem)", { lineHeight: "1.14", letterSpacing: "-0.04em" }],
-        "display-lg": ["clamp(2.25rem, 5vw, 3.75rem)", { lineHeight: "1.1", letterSpacing: "-0.03em" }],
-        // Section headings — target 50–65px on desktop, safe on mobile
-        "heading": ["clamp(2.25rem, 5vw, 4.0625rem)", { lineHeight: "1.1", letterSpacing: "-0.03em" }],
-        // Consistent subheading — 18px
-        "subheading": ["18px", { lineHeight: "1.6" }],
+        "display-xl": ["clamp(2rem, 8vw, 5rem)", { lineHeight: "1.14", letterSpacing: "-0.05em" }],
+        "display-lg": ["clamp(2.25rem, 5vw, 3.75rem)", { lineHeight: "1.1", letterSpacing: "-0.04em" }],
+        // Big section headings
+        "heading": ["clamp(2.5rem, 5vw, 4rem)", { lineHeight: "1.05", letterSpacing: "-0.045em" }],
+        "subheading": ["18px", { lineHeight: "1.6", letterSpacing: "-0.01em" }],
+      },
+      letterSpacing: {
+        tightest: "-0.05em",
       },
       borderRadius: {
         "2xl": "20px",
@@ -61,14 +62,13 @@ const config: Config = {
         prose: "680px",
       },
       boxShadow: {
-        // Premium, layered elevation
-        card: "0 1px 0 0 rgba(255,255,255,0.05) inset, 0 24px 60px -24px rgba(0,0,0,0.8)",
-        float: "0 40px 120px -32px rgba(0,0,0,0.9), 0 1px 0 0 rgba(255,255,255,0.06) inset",
-        glow: "0 0 0 1px rgba(91,147,255,0.18), 0 24px 80px -20px rgba(59,130,246,0.35)",
+        card: "0 1px 0 0 rgba(244,244,244,0.05) inset, 0 24px 60px -24px rgba(0,0,0,0.8)",
+        float: "0 40px 120px -32px rgba(0,0,0,0.9), 0 1px 0 0 rgba(244,244,244,0.06) inset",
+        glow: "0 0 0 1px rgba(244,244,244,0.14), 0 24px 80px -20px rgba(244,244,244,0.18)",
       },
       backgroundImage: {
         "grid-fade":
-          "linear-gradient(to bottom, transparent, #050609 92%), linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
+          "linear-gradient(to bottom, transparent, #191919 92%), linear-gradient(rgba(244,244,244,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(244,244,244,0.035) 1px, transparent 1px)",
       },
       keyframes: {
         "gradient-pan": {
@@ -76,15 +76,12 @@ const config: Config = {
           "50%": { backgroundPosition: "100% 50%" },
         },
         "glow-pulse": {
-          "0%, 100%": { opacity: "0.55", transform: "scale(1)" },
-          "50%": { opacity: "0.85", transform: "scale(1.06)" },
+          "0%, 100%": { opacity: "0.5", transform: "scale(1)" },
+          "50%": { opacity: "0.8", transform: "scale(1.06)" },
         },
         marquee: {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
-        },
-        shimmer: {
-          "100%": { transform: "translateX(100%)" },
         },
       },
       animation: {

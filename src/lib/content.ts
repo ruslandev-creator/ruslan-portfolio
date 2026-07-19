@@ -95,39 +95,27 @@ export type Step = {
 export const processSteps: Step[] = [
   {
     no: "01",
-    title: "Tanishuv",
+    title: "Brief va strategiya",
     description:
-      "Biznesingiz, maqsadlaringiz va mijozlaringizni chuqur o'rganamiz. Aniq brif tuzamiz.",
+      "Biznesingiz va maqsadingizni o'rganib, sotadigan aniq strategiyani belgilaymiz.",
   },
   {
     no: "02",
-    title: "Tadqiqot",
+    title: "Premium dizayn",
     description:
-      "Bozor, raqobatchilar va auditoriyani tahlil qilib, g'olib strategiyani belgilaymiz.",
+      "Brendingizga mos noyob vizual til: tipografiya, rang va animatsiya.",
   },
   {
     no: "03",
-    title: "Wireframe",
+    title: "Tez ishlab chiqish",
     description:
-      "Har bir bo'lim mantiqan joylashtiriladi — struktura konversiya uchun quriladi.",
+      "Next.js'da 3 barobar tezroq, moslashuvchan va SEO-tayyor sayt quriladi.",
   },
   {
     no: "04",
-    title: "Dizayn",
-    description:
-      "Premium vizual til: tipografiya, rang, animatsiya va brend hissi shakllantiriladi.",
-  },
-  {
-    no: "05",
-    title: "Ishlab chiqish",
-    description:
-      "Next.js va zamonaviy texnologiyalarda tez, moslashuvchan va SEO-tayyor kod.",
-  },
-  {
-    no: "06",
     title: "Ishga tushirish",
     description:
-      "Domen, analitika va tezlik testlari. Sayt havolasi bilan biznesingiz jonli efirda.",
+      "Domen, tezlik va analitika sozlanadi — biznesingiz jonli efirda.",
   },
 ];
 
@@ -236,28 +224,24 @@ export const plans: Plan[] = [
 /* ---------- FAQ ---------- */
 export const faqs = [
   {
-    q: "Loyiha qancha vaqtda tayyor bo'ladi?",
-    a: "Landing odatda 5–10 kun ichida tayyor bo'ladi. Ko'p sahifali saytlar uchun muddat brifga qarab kelishiladi. Har bosqichda aniq muddatlarni oldindan aytaman.",
+    q: "Sayt qancha vaqtda tayyor bo'ladi?",
+    a: "Oddiy landing 8 soatdan tayyor. Kattaroq loyihalar brifga qarab kelishiladi — muddatni oldindan aniq aytaman.",
   },
   {
-    q: "Narx nimalarga bog'liq?",
-    a: "Bo'limlar soni, animatsiya murakkabligi va qo'shimcha integratsiyalarga. Tanishuvdan so'ng sizga aniq va yakuniy taklif beraman — kutilmagan to'lovlar bo'lmaydi.",
+    q: "Narx qancha?",
+    a: "Bo'limlar soni va murakkablikka bog'liq. Tanishuvdan so'ng aniq va yakuniy taklif beraman — yashirin to'lovlar yo'q.",
   },
   {
     q: "Saytni keyin o'zim tahrirlay olamanmi?",
-    a: "Ha. Premium tarifda CMS ulaymiz — matn va rasmlarni kod bilmasdan o'zingiz yangilaysiz. Boshqa tariflarda ham tahrir bo'yicha yo'riqnoma beraman.",
+    a: "Ha. Xohishingizga ko'ra CMS ulayman — matn va rasmlarni kod bilmasdan o'zingiz yangilaysiz.",
   },
   {
-    q: "To'lov qanday amalga oshiriladi?",
-    a: "Ish boshida 50% oldindan, qolgan 50% loyiha topshirilganda. Naqd, plastik karta yoki bank o'tkazmasi orqali qabul qilinadi.",
+    q: "To'lov qanday?",
+    a: "Ish boshida 50%, topshirilganda 50%. Naqd, karta yoki bank o'tkazmasi qabul qilinadi.",
   },
   {
-    q: "Domen va hosting kim tomonidan?",
-    a: "Domen va hostingni tanlash, sotib olish va sozlashda to'liq yordam beraman. Xohishingizga ko'ra o'zingiz nomingizga rasmiylashtiramiz.",
-  },
-  {
-    q: "Ishdan keyin qo'llab-quvvatlash bormi?",
-    a: "Ha. Har bir loyihadan so'ng bepul qo'llab-quvvatlash davri beriladi. Keyinchalik ham yangilanish va texnik yordam xizmatlari mavjud.",
+    q: "Ishdan keyin yordam bormi?",
+    a: "Ha. Har bir loyihadan so'ng bepul qo'llab-quvvatlash beriladi, keyin ham yordam mavjud.",
   },
 ] as const;
 
