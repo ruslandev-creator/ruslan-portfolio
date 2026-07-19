@@ -1,9 +1,12 @@
 import type { ReactNode } from "react";
+import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
+import { SectionBadge } from "./SectionBadge";
 
 type SectionHeadingProps = {
   eyebrow: string;
+  icon: LucideIcon;
   title: ReactNode;
   description?: ReactNode;
   align?: "left" | "center";
@@ -17,6 +20,7 @@ type SectionHeadingProps = {
  */
 export function SectionHeading({
   eyebrow,
+  icon,
   title,
   description,
   align = "center",
@@ -31,13 +35,9 @@ export function SectionHeading({
         className,
       )}
     >
-      {/* Blok nomi */}
-      <Reveal className="mb-4 flex items-center gap-2">
-        <span className="h-px w-6 bg-gradient-to-r from-transparent to-accent-400/70" />
-        <span className="eyebrow">{eyebrow}</span>
-        {centered && (
-          <span className="h-px w-6 bg-gradient-to-l from-transparent to-accent-400/70" />
-        )}
+      {/* Blok nomi — badge */}
+      <Reveal className="mb-6">
+        <SectionBadge icon={icon} label={eyebrow} />
       </Reveal>
 
       {/* Heading */}

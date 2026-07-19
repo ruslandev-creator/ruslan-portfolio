@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BadgeDollarSign } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Check } from "@/components/ui/Icons";
 import { Scramble } from "@/components/ui/Scramble";
@@ -17,6 +18,7 @@ export function Pricing() {
       <div className="container-page">
         <SectionHeading
           align="left"
+          icon={BadgeDollarSign}
           eyebrow="Narxlar"
           title={<>Aniq tariflar, yashirin to&apos;lovsiz</>}
           description="Har bir tarif — o'lchanadigan natijaga qilingan investitsiya."

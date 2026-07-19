@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BriefcaseBusiness } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { projects, type Project } from "@/lib/content";
 import { scaleIn, stagger, viewportOnce } from "@/lib/motion";
@@ -40,6 +41,7 @@ export function Portfolio() {
       <div className="container-page">
         <SectionHeading
           align="left"
+          icon={BriefcaseBusiness}
           eyebrow="Portfolio"
           title={<>So&apos;nggi ishlar</>}
           description="Har bir loyiha — o'ziga xos brend va o'lchanadigan natija."

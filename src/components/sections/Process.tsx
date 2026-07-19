@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Workflow } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { processSteps } from "@/lib/content";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
@@ -27,6 +28,7 @@ export function Process() {
       <div className="container-page">
         <SectionHeading
           align="left"
+          icon={Workflow}
           eyebrow="Ishlash jarayoni"
           title={<>Fikrdan ishga tushirishgacha</>}
           description="Aniq, tez va shaffof jarayon — atigi 4 qadam. Har bir bosqichda loyiha qayerdaligini bilib turasiz."

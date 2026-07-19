@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { GitCompare } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Check, Cross } from "@/components/ui/Icons";
 import { comparison } from "@/lib/content";
@@ -17,6 +18,7 @@ export function Comparison() {
       <div className="container-page">
         <SectionHeading
           align="left"
+          icon={GitCompare}
           eyebrow="Taqqoslash"
           title={<>Oddiy sayt va premium landing</>}
           description="Bir xil byudjet, butunlay boshqacha natija. Mijoz birinchi 3 soniyada qaror qabul qiladi."

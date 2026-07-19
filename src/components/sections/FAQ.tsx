@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { CircleHelp } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Plus } from "@/components/ui/Icons";
 import { faqs } from "@/lib/content";
@@ -15,6 +16,7 @@ export function FAQ() {
       <div className="container-page">
         <SectionHeading
           align="left"
+          icon={CircleHelp}
           eyebrow="Savol-javob"
           title={<>Ko&apos;p beriladigan savollar</>}
           description="Javobini topa olmadingizmi? To'g'ridan-to'g'ri yozing — 24 soat ichida javob beramiz."

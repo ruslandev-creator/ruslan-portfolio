@@ -1,7 +1,9 @@
 "use client";
 
+import { Mail } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/ui/ContactForm";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { GridBackdrop } from "@/components/ui/Backgrounds";
 import { Phone, Telegram, ArrowUpRight } from "@/components/ui/Icons";
 import { site } from "@/lib/site";
@@ -15,9 +17,8 @@ export function ContactCTA() {
         <div className="grid grid-cols-12 gap-y-12 lg:gap-x-16">
           {/* Statement + direct contact */}
           <div className="col-span-12 lg:col-span-6">
-            <Reveal className="flex items-center gap-2">
-              <span className="h-px w-6 bg-white/40" />
-              <span className="eyebrow">Aloqa</span>
+            <Reveal>
+              <SectionBadge icon={Mail} label="Aloqa" />
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="mt-6 font-display text-display-lg text-white">
