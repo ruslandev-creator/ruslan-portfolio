@@ -33,7 +33,7 @@ export function SectionHeading({
       <Reveal
         as="div"
         delay={0.08}
-        className="mx-auto max-w-[700px] font-display text-heading font-bold text-white"
+        className="mx-auto max-w-[700px] font-display text-heading font-medium text-white"
       >
         {title}
       </Reveal>
