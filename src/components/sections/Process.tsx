@@ -1,19 +1,27 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { processSteps } from "@/lib/content";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 
-export function Process() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 65%", "end 55%"],
-  });
-  const fill = useTransform(scrollYProgress, [0, 1], [0, 1]);
+function CornerMarks() {
+  const mark = (
+    <svg viewBox="0 0 12 12" className="absolute h-3 w-3 text-line-strong" fill="none" stroke="currentColor" strokeWidth="1">
+      <path d="M6 0V12 M0 6H12" />
+    </svg>
+  );
+  return (
+    <>
+      <span className="pointer-events-none absolute -left-1.5 -top-1.5">{mark}</span>
+      <span className="pointer-events-none absolute -right-1.5 -top-1.5">{mark}</span>
+      <span className="pointer-events-none absolute -bottom-1.5 -left-1.5">{mark}</span>
+      <span className="pointer-events-none absolute -bottom-1.5 -right-1.5">{mark}</span>
+    </>
+  );
+}
 
+export function Process() {
   return (
     <section id="jarayon" className="section-pad relative border-t border-line">
       <div className="container-page">
@@ -24,43 +32,32 @@ export function Process() {
           description="Aniq, tez va shaffof jarayon — atigi 4 qadam. Har bir bosqichda loyiha qayerdaligini bilib turasiz."
         />
 
-        <div ref={ref} className="relative mt-20">
-          {/* Connecting rail with scroll-driven fill */}
-          <div className="absolute left-20 top-5 h-[calc(100%-3rem)] w-px bg-line sm:left-28">
-            <motion.div style={{ scaleY: fill }} className="h-full w-full origin-top bg-white/60" />
-          </div>
-
-          <motion.ol
-            variants={stagger(0.05, 0.16)}
+        <div className="relative mt-16 border border-line">
+          <CornerMarks />
+          <motion.div
+            variants={stagger(0.05, 0.12)}
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
-            className="flex flex-col"
+            className="grid grid-cols-1 gap-px bg-line sm:grid-cols-2 lg:grid-cols-4"
           >
             {processSteps.map((step) => (
-              <motion.li
+              <motion.div
                 key={step.no}
                 variants={fadeUp}
-                className="group relative grid grid-cols-[5rem_1fr] gap-x-10 pb-20 last:pb-0 sm:grid-cols-[7rem_1fr] sm:gap-x-20 md:pb-32"
+                className="group relative flex flex-col bg-ink-950 p-8 transition-colors duration-500 hover:bg-ink-900"
               >
-                {/* Large step number */}
-                <span className="text-right font-display text-5xl leading-none tracking-tightest text-white/15 transition-colors duration-500 group-hover:text-white sm:text-7xl">
-                  {step.no}
-                </span>
-
-                {/* Node on the rail */}
-                <span className="absolute left-20 top-3 h-2.5 w-2.5 -translate-x-1/2 border border-white bg-ink-950 transition-colors duration-500 group-hover:bg-white sm:left-28" />
-
-                {/* Content */}
-                <div className="pt-2">
-                  <h3 className="font-display text-2xl text-white sm:text-3xl">{step.title}</h3>
-                  <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted">
-                    {step.description}
-                  </p>
+                <div className="flex items-center justify-between">
+                  <span className="font-display text-5xl leading-none tracking-tightest text-white/15 transition-colors duration-500 group-hover:text-white">
+                    {step.no}
+                  </span>
+                  <span className="h-1.5 w-1.5 bg-line-strong transition-colors duration-500 group-hover:bg-white" />
                 </div>
-              </motion.li>
+                <h3 className="mt-12 font-display text-xl text-white">{step.title}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted">{step.description}</p>
+              </motion.div>
             ))}
-          </motion.ol>
+          </motion.div>
         </div>
       </div>
     </section>

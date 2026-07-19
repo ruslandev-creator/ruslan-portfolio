@@ -83,6 +83,26 @@ export const projects: Project[] = [
     metricLabel: "Stol bronlari",
     accent: "from-[#2a2340] to-[#0d0b16]",
   },
+  {
+    title: "Vertex Fitness",
+    category: "Fitnes",
+    year: "2024",
+    summary:
+      "Zamonaviy fitnes klubi uchun a'zolik va mashg'ulotlarga yozilish tizimi.",
+    metric: "+192%",
+    metricLabel: "Yangi a'zolar",
+    accent: "from-[#1b2b52] to-[#0b1120]",
+  },
+  {
+    title: "Orion Academy",
+    category: "Ta'lim",
+    year: "2025",
+    summary:
+      "O'quv markazi uchun kurslar katalogi va onlayn ariza qabul qilish sahifasi.",
+    metric: "×3.1",
+    metricLabel: "Kursga yozilishlar",
+    accent: "from-[#123040] to-[#0a1016]",
+  },
 ];
 
 /* ---------- Process ---------- */

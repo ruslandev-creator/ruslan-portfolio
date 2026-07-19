@@ -84,19 +84,19 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Stats — same left axis, unified spacing */}
+      {/* Stats — bordered technical bar */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.85 }}
-        className="container-page relative z-10 mt-24 border-t border-line pt-8"
+        className="container-page relative z-10 mt-20"
       >
-        <dl className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <dl className="grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-3">
           {stats.map((s) => (
-            <div key={s.value} className="flex flex-col">
-              <dt className="font-display text-4xl text-white">{s.value}</dt>
-              <dd className="mt-2 text-[15px] text-white">{s.label}</dd>
-              {s.sub && <dd className="mt-1 text-[14px] text-muted">{s.sub}</dd>}
+            <div key={s.value} className="bg-ink-950 p-6">
+              <dt className="text-[13px] text-muted">{s.label}</dt>
+              <dd className="mt-3 font-display text-3xl text-white">{s.value}</dd>
+              {s.sub && <dd className="mt-2 text-[12px] text-muted/70">{s.sub}</dd>}
             </div>
           ))}
         </dl>

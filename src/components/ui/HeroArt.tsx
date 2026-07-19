@@ -76,21 +76,21 @@ export function HeroArt({ className }: { className?: string }) {
         <circle cx="462" cy="140" r="3" fill="#191919" stroke="#A8A8A8" strokeWidth="1" />
         <circle cx="424" cy="84" r="3" fill="#191919" stroke="#F4F4F4" strokeWidth="1" />
 
-        {/* UX tag */}
-        <rect x="110" y="234" width="46" height="24" fill="#191919" stroke="#A8A8A8" strokeWidth="1" />
-        <text x="124" y="250" fill="#F4F4F4" fontSize="12">UX</text>
+        {/* Qulaylik tag */}
+        <rect x="108" y="232" width="92" height="24" fill="#191919" stroke="#A8A8A8" strokeWidth="1" />
+        <text x="118" y="249" fill="#F4F4F4" fontSize="11">QULAYLIK</text>
 
         {/* labels */}
-        <text x="474" y="242" fill="#A8A8A8" fontSize="12">CONVERSION</text>
-        <text x="476" y="144" fill="#A8A8A8" fontSize="12">ROI</text>
-        <text x="392" y="56" fill="#F4F4F4" fontSize="13">GROWTH</text>
+        <text x="474" y="242" fill="#A8A8A8" fontSize="12">SOTUV</text>
+        <text x="476" y="144" fill="#A8A8A8" fontSize="12">FOYDA</text>
+        <text x="392" y="56" fill="#F4F4F4" fontSize="13">O&apos;SISH</text>
 
         <g stroke="#A8A8A8" strokeWidth="1">
           <rect x="84" y="524" width="7" height="7" />
           <rect x="252" y="524" width="7" height="7" />
         </g>
-        <text x="99" y="531" fill="#A8A8A8" fontSize="12">STRATEGY</text>
-        <text x="267" y="531" fill="#A8A8A8" fontSize="12">PERFORMANCE</text>
+        <text x="99" y="531" fill="#A8A8A8" fontSize="12">REJA</text>
+        <text x="267" y="531" fill="#A8A8A8" fontSize="12">TEZLIK</text>
       </g>
     </svg>
   );
