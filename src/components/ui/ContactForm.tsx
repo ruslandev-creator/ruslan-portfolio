@@ -86,14 +86,14 @@ export function ContactForm({ className }: { className?: string }) {
             className="pointer-events-none absolute -left-[9999px] h-0 w-0 opacity-0"
           />
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
             <label htmlFor="cf-name" className="text-[13px] text-muted">
               Ismingiz
             </label>
             <input id="cf-name" name="name" className={inputCls} placeholder="Ism Familiya" />
           </div>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
             <label htmlFor="cf-contact" className="text-[13px] text-muted">
               Telefon raqamingiz
             </label>

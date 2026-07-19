@@ -64,7 +64,7 @@
 @layer components {
   /* ---- Layout ---- */
   .container-page {
-    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-content px-6 lg:px-8;
   }
 
   .section-pad {

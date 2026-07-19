@@ -8,10 +8,10 @@ import { ArrowRight, Telegram } from "@/components/ui/Icons";
 import { useContactModal } from "@/components/providers/ContactModal";
 import { site } from "@/lib/site";
 
-const meta = [
-  { k: "Joylashuv", v: "Toshkent, UZ" },
-  { k: "Muddat", v: "8 soatdan" },
-  { k: "Javob", v: "24 soat ichida" },
+const stats = [
+  { value: "50+", label: "Muvaffaqiyatli loyihalar", sub: "Turli bizneslar uchun yaratilgan" },
+  { value: "8 soatdan", label: "Tezkor topshirish", sub: null },
+  { value: "24 soat", label: "Doimiy aloqa va qo'llab-quvvatlash", sub: null },
 ];
 
 export function Hero() {
@@ -40,33 +40,28 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="top" className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-16">
+    <section
+      id="top"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-16"
+    >
       <GridBackdrop />
 
-      {/* Animated background: a single hairline sweeping down slowly */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"
-        initial={{ y: 0 }}
-        animate={{ y: ["0vh", "100vh"] }}
-        transition={{ duration: 9, ease: "linear", repeat: Infinity }}
-      />
-
-      <div className="container-page relative z-10 grid grid-cols-12 gap-y-8">
-        <div className="col-span-12 lg:col-span-11">
+      {/* Everything shares one left axis via the container */}
+      <div className="container-page relative z-10">
+        <div className="flex max-w-4xl flex-col items-start">
           {/* Eyebrow chip */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-            className="inline-flex items-center gap-2 border border-line px-3 py-1.5 text-[13px] text-muted"
+            className="inline-flex items-center gap-2 border border-line px-3 py-2 text-[13px] text-muted"
           >
             <span className="h-1.5 w-1.5 bg-white" />
             Yoqmasa — pul qaytariladi
           </motion.div>
 
           {/* Headline */}
-          <h1 ref={headingRef} className="mt-6 font-display text-display-xl font-medium">
+          <h1 ref={headingRef} className="mt-8 font-display text-display-xl font-medium">
             <span className="block overflow-hidden pb-[0.12em]">
               <span data-line className="block text-white">
                 8 soat ichida
@@ -83,50 +78,51 @@ export function Hero() {
               </span>
             </span>
           </h1>
-        </div>
 
-        {/* Subheading + CTAs (offset into the grid for asymmetry) */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.75 }}
-          className="col-span-12 flex flex-col gap-6 md:col-span-8 lg:col-span-6 lg:col-start-6"
-        >
-          <p className="text-subheading text-muted">
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.75 }}
+            className="mt-8 max-w-xl text-subheading text-muted"
+          >
             Men yaratgan saytlar boshqa saytlardan{" "}
             <span className="text-white">3 barobar tezroq</span> ishlaydi. Biznesingiz qimmat va
             ishonchli ko&apos;rinadi.
-          </p>
-          <div className="flex flex-col gap-2 sm:flex-row">
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.85 }}
+            className="mt-8 flex flex-col gap-2 sm:flex-row"
+          >
             <button type="button" onClick={open} className="btn-primary">
               Ishni boshlash
               <ArrowRight className="h-4 w-4" />
             </button>
-            <a
-              href={site.telegram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost"
-            >
+            <a href={site.telegram} target="_blank" rel="noopener noreferrer" className="btn-ghost">
               <Telegram className="h-[18px] w-[18px]" />
               Telegramdan yozish
             </a>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Engineered meta row along the bottom */}
+      {/* Stats — same left axis, unified spacing */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="container-page relative z-10 mt-16 border-t border-line pt-4"
+        className="container-page relative z-10 mt-24 border-t border-line pt-8"
       >
-        <dl className="grid grid-cols-2 gap-y-4 sm:grid-cols-3">
-          {meta.map((m) => (
-            <div key={m.k} className="flex flex-col gap-1">
-              <dt className="text-[12px] uppercase tracking-[0.18em] text-muted/70">{m.k}</dt>
-              <dd className="text-[15px] text-white">{m.v}</dd>
+        <dl className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+          {stats.map((s) => (
+            <div key={s.value} className="flex flex-col">
+              <dt className="font-display text-4xl text-white">{s.value}</dt>
+              <dd className="mt-2 text-[15px] text-white">{s.label}</dd>
+              {s.sub && <dd className="mt-1 text-[14px] text-muted">{s.sub}</dd>}
             </div>
           ))}
         </dl>

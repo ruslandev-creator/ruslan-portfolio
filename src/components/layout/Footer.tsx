@@ -66,7 +66,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-line">
-        <div className="container-page flex flex-col items-start justify-between gap-2 py-5 text-[13px] text-muted/70 sm:flex-row sm:items-center">
+        <div className="container-page flex flex-col items-start justify-between gap-2 py-6 text-[13px] text-muted/70 sm:flex-row sm:items-center">
           <p>© {year} {site.wordmark}. Barcha huquqlar himoyalangan.</p>
           <p>{site.role} · {site.location}</p>
         </div>

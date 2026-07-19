@@ -57,7 +57,7 @@ export function SectionHeading({
         <Reveal
           delay={0.16}
           className={cn(
-            "mt-5 text-subheading text-balance text-white/55",
+            "mt-6 text-subheading text-balance text-muted",
             centered ? "max-w-prose" : "max-w-xl",
           )}
         >
