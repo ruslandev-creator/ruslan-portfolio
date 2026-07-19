@@ -1,48 +1,58 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { SpotlightCard } from "@/components/ui/SpotlightCard";
-import { GlowField } from "@/components/ui/Backgrounds";
-import { iconMap } from "@/components/ui/Icons";
+import { Reveal } from "@/components/ui/Reveal";
 import { features } from "@/lib/content";
-import { scaleIn, stagger, viewportOnce } from "@/lib/motion";
+import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 
 export function WhyMe() {
   return (
-    <section id="afzalliklar" className="section-pad relative overflow-hidden">
-      <GlowField variant="soft" />
+    <section id="afzalliklar" className="section-pad relative border-t border-line">
       <div className="container-page">
-        <SectionHeading
-          eyebrow="Nega men"
-          title={<>Nega bizneslar aynan men bilan ishlaydi</>}
-          description="Chiroyli dizayn — bu boshlanishi. Men natijaga, tezlikka va sizning biznesingizga javob beraman."
-        />
+        <div className="grid grid-cols-12 gap-y-12 lg:gap-x-12">
+          {/* Sticky heading */}
+          <div className="col-span-12 lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
+            <Reveal className="flex items-center gap-2">
+              <span className="h-px w-6 bg-white/40" />
+              <span className="eyebrow">Nega men</span>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h2 className="mt-5 font-display text-heading text-white">
+                Chiroyli emas — natija keltiradigan dizayn
+              </h2>
+            </Reveal>
+            <Reveal delay={0.16}>
+              <p className="mt-5 max-w-md text-subheading text-muted">
+                Har bir element sizning biznesingiz uchun ishlaydi: ishonch, tezlik va sotuv.
+              </p>
+            </Reveal>
+          </div>
 
-        <motion.div
-          variants={stagger(0.06, 0.09)}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-          className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {features.map((f) => {
-            const Icon = iconMap[f.icon];
-            return (
-              <motion.div key={f.title} variants={scaleIn}>
-                <SpotlightCard className="h-full p-4">
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl border border-line bg-white/[0.04] text-accent-200 transition-colors duration-500 group-hover:border-accent-400/50 group-hover:text-accent-100">
-                    <Icon className="h-[22px] w-[22px]" />
-                  </span>
-                  <h3 className="mt-3 font-display text-xl text-white">{f.title}</h3>
-                  <p className="mt-1.5 text-[15px] leading-relaxed text-white/55">
-                    {f.description}
-                  </p>
-                </SpotlightCard>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+          {/* Numbered list */}
+          <motion.ol
+            variants={stagger(0.04, 0.09)}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            className="col-span-12 border-t border-line lg:col-span-7"
+          >
+            {features.map((f, i) => (
+              <motion.li
+                key={f.title}
+                variants={fadeUp}
+                className="group grid grid-cols-[auto_1fr] gap-x-5 border-b border-line py-6"
+              >
+                <span className="font-display text-[15px] text-muted/60">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="font-display text-xl text-white transition-colors">{f.title}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-muted">{f.description}</p>
+                </div>
+              </motion.li>
+            ))}
+          </motion.ol>
+        </div>
       </div>
     </section>
   );

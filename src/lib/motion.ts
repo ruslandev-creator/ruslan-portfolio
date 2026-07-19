@@ -1,44 +1,45 @@
 import type { Variants } from "framer-motion";
 
-/** Premium easing — matches the CSS `ease-premium` curve. */
+/** Premium ease-out — no bounce, no overshoot. */
 export const easePremium = [0.22, 1, 0.36, 1] as const;
 
-/** Strong fade + rise + blur — the default scroll reveal. */
+/** Fade + slide up — the default reveal. */
 export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 56, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 40 },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.95, ease: easePremium },
+    transition: { duration: 0.85, ease: easePremium },
   },
 };
 
-/** Softer fade for large blocks. */
+/** Plain fade for large blocks. */
 export const fadeIn: Variants = {
-  hidden: { opacity: 0, filter: "blur(8px)" },
-  show: { opacity: 1, filter: "blur(0px)", transition: { duration: 1.1, ease: easePremium } },
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 1, ease: easePremium } },
 };
 
 /** Stagger container for lists / grids. */
-export const stagger = (delayChildren = 0.05, stagger = 0.12): Variants => ({
+export const stagger = (delayChildren = 0.04, stagger = 0.1): Variants => ({
   hidden: {},
-  show: {
-    transition: { delayChildren, staggerChildren: stagger },
-  },
+  show: { transition: { delayChildren, staggerChildren: stagger } },
 });
 
-/** Dramatic scale-in for cards and media. */
+/** Subtle scale + rise for cards and media. */
 export const scaleIn: Variants = {
-  hidden: { opacity: 0, y: 60, scale: 0.9, filter: "blur(12px)" },
+  hidden: { opacity: 0, y: 32, scale: 0.985 },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
-    filter: "blur(0px)",
-    transition: { duration: 1, ease: easePremium },
+    transition: { duration: 0.9, ease: easePremium },
   },
 };
 
-/** Shared viewport config so reveals feel consistent. */
+/** Horizontal slide for split compositions. */
+export const slideIn = (from: "left" | "right" = "left"): Variants => ({
+  hidden: { opacity: 0, x: from === "left" ? -48 : 48 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.9, ease: easePremium } },
+});
+
 export const viewportOnce = { once: true, amount: 0.2 } as const;

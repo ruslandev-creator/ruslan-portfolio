@@ -2,63 +2,84 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { projects, type Project } from "@/lib/content";
-import { scaleIn, stagger, viewportOnce } from "@/lib/motion";
+import { fadeUp, slideIn, viewportOnce } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
-function ProjectCard({ project }: { project: Project }) {
+function ImagePlaceholder() {
   return (
-    <motion.div variants={scaleIn}>
-      <SpotlightCard className="h-full">
-        {/* Rasm uchun joy — keyin real skrinshot qo'yiladi */}
-        <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-line-soft bg-ink-800">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(244,244,244,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(244,244,244,0.03)_1px,transparent_1px)] [background-size:32px_32px]" />
-          <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.04] blur-[60px]" />
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            className="relative h-9 w-9 text-white/20"
-            stroke="currentColor"
-            strokeWidth="1.25"
-          >
-            <rect x="3" y="4" width="18" height="16" rx="2" />
-            <circle cx="8.5" cy="9.5" r="1.5" />
-            <path d="m4 18 5-5 4 4 3-3 4 4" />
-          </svg>
-        </div>
+    <div className="surface surface-hover relative flex aspect-[16/10] items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(#ffffff08_1px,transparent_1px),linear-gradient(90deg,#ffffff08_1px,transparent_1px)] [background-size:40px_40px]" />
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        className="relative h-10 w-10 text-white/15"
+        stroke="currentColor"
+        strokeWidth="1"
+      >
+        <rect x="3" y="4" width="18" height="16" />
+        <circle cx="8.5" cy="9.5" r="1.5" />
+        <path d="m4 18 5-5 4 4 3-3 4 4" />
+      </svg>
+    </div>
+  );
+}
 
-        {/* Keys nomi + nima ekanligi */}
-        <div className="p-4">
-          <h3 className="font-display text-2xl text-white">{project.title}</h3>
-          <p className="mt-1.5 text-[15px] text-white/45">{project.category}</p>
+function ProjectRow({ project, index }: { project: Project; index: number }) {
+  const flip = index % 2 === 1;
+  return (
+    <div className="grid grid-cols-12 items-center gap-y-6 lg:gap-x-8">
+      {/* Media */}
+      <motion.div
+        variants={slideIn(flip ? "right" : "left")}
+        initial="hidden"
+        whileInView="show"
+        viewport={viewportOnce}
+        className={cn("col-span-12 lg:col-span-7", flip && "lg:order-2")}
+      >
+        <ImagePlaceholder />
+      </motion.div>
+
+      {/* Info */}
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={viewportOnce}
+        className={cn("col-span-12 lg:col-span-5", flip && "lg:order-1")}
+      >
+        <div className="flex items-baseline gap-4">
+          <span className="font-display text-[15px] text-muted/70">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="h-px flex-1 bg-line" />
+          <span className="text-[13px] uppercase tracking-[0.16em] text-muted/70">
+            {project.category}
+          </span>
         </div>
-      </SpotlightCard>
-    </motion.div>
+        <h3 className="mt-4 font-display text-4xl text-white">{project.title}</h3>
+        <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-muted">{project.summary}</p>
+      </motion.div>
+    </div>
   );
 }
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="section-pad relative">
+    <section id="portfolio" className="section-pad relative border-t border-line">
       <div className="container-page">
         <SectionHeading
           align="left"
           eyebrow="Portfolio"
           title={<>So&apos;nggi ishlar</>}
-          description="Har bir loyiha — o'ziga xos brend va premium ijro."
+          description="Har bir loyiha — o'ziga xos brend va o'lchanadigan natija."
         />
 
-        <motion.div
-          variants={stagger(0.08, 0.12)}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-          className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {projects.map((p) => (
-            <ProjectCard key={p.title} project={p} />
+        <div className="mt-16 flex flex-col gap-16 lg:gap-24">
+          {projects.map((p, i) => (
+            <ProjectRow key={p.title} project={p} index={i} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

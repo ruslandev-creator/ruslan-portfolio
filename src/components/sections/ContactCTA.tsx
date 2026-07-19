@@ -1,63 +1,70 @@
 "use client";
 
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactForm } from "@/components/ui/ContactForm";
-import { GlowField, GridBackdrop } from "@/components/ui/Backgrounds";
-import { Phone, Telegram } from "@/components/ui/Icons";
+import { GridBackdrop } from "@/components/ui/Backgrounds";
+import { Phone, Telegram, ArrowUpRight } from "@/components/ui/Icons";
 import { site } from "@/lib/site";
 
 export function ContactCTA() {
   return (
-    <section id="aloqa" className="section-pad relative overflow-hidden">
+    <section id="aloqa" className="section-pad relative overflow-hidden border-t border-line">
       <GridBackdrop />
-      <GlowField variant="center" />
 
       <div className="container-page relative z-10">
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr]">
-          {/* Copy */}
-          <div>
-            <SectionHeading
-              align="left"
-              eyebrow="Aloqa"
-              title={<>Biznesingizni premium darajaga olib chiqamiz</>}
-              description="Ism va telefon raqamingizni qoldiring — 24 soat ichida bepul maslahat va aniq taklif bilan bog'lanaman."
-            />
+        <div className="grid grid-cols-12 gap-y-12 lg:gap-x-16">
+          {/* Statement + direct contact */}
+          <div className="col-span-12 lg:col-span-6">
+            <Reveal className="flex items-center gap-2">
+              <span className="h-px w-6 bg-white/40" />
+              <span className="eyebrow">Aloqa</span>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h2 className="mt-6 font-display text-display-lg text-white">
+                Biznesingizni premium darajaga olib chiqamiz
+              </h2>
+            </Reveal>
+            <Reveal delay={0.16}>
+              <p className="mt-6 max-w-md text-subheading text-muted">
+                Ism va telefon raqamingizni qoldiring — 5 daqiqada aloqaga chiqaman.
+              </p>
+            </Reveal>
 
-            <Reveal delay={0.2}>
-              <div className="mt-6 flex flex-wrap items-center gap-2">
-                <a href={site.phoneHref} className="btn-ghost text-[15px]">
-                  <Phone className="h-[16px] w-[16px] text-accent-300" />
-                  {site.phone}
+            <Reveal delay={0.24}>
+              <div className="mt-10 border-t border-line">
+                <a
+                  href={site.phoneHref}
+                  className="surface-hover flex items-center justify-between border-b border-line px-4 py-4"
+                >
+                  <span className="flex items-center gap-3 text-white">
+                    <Phone className="h-4 w-4" />
+                    {site.phone}
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 text-muted" />
                 </a>
                 <a
                   href={site.telegram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-ghost text-[15px]"
+                  className="surface-hover flex items-center justify-between border-b border-line px-4 py-4"
                 >
-                  <Telegram className="h-[16px] w-[16px] text-accent-300" />
-                  Telegram
+                  <span className="flex items-center gap-3 text-white">
+                    <Telegram className="h-[17px] w-[17px]" />
+                    Telegram
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 text-muted" />
                 </a>
               </div>
             </Reveal>
           </div>
 
-          {/* Form */}
-          <Reveal delay={0.1}>
-            <div className="relative rounded-4xl glass-strong p-5 shadow-float ring-premium">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute left-1/2 top-[-30%] h-56 w-56 -translate-x-1/2 rounded-full bg-accent-500/20 blur-[80px]"
-              />
-              <div className="relative">
-                <h3 className="font-display text-2xl text-white">Ishni boshlaymiz</h3>
-                <p className="mt-1.5 text-[15px] text-white/55">
-                  Bir necha soniya — qolganini o&apos;zim hal qilaman.
-                </p>
-                <div className="mt-4">
-                  <ContactForm />
-                </div>
+          {/* Form panel */}
+          <Reveal delay={0.1} className="col-span-12 lg:col-span-6">
+            <div className="surface p-6 sm:p-8">
+              <p className="eyebrow">Ariza qoldiring</p>
+              <h3 className="mt-3 font-display text-2xl text-white">Ishni boshlaymiz</h3>
+              <div className="mt-6">
+                <ContactForm />
               </div>
             </div>
           </Reveal>

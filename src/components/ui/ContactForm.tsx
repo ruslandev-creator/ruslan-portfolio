@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 type Status = "idle" | "sending" | "sent";
 
 const inputCls =
-  "w-full rounded-2xl border border-line bg-white/[0.03] px-3 py-2.5 text-[16px] text-white placeholder:text-white/30 outline-none transition-colors duration-300 focus:border-accent-400/60 focus:bg-white/[0.05]";
+  "w-full border border-line bg-ink-950 px-3 py-3 text-[16px] text-white placeholder:text-muted/50 outline-none transition-colors duration-300 focus:border-white/40";
 
 /**
  * Minimal aloqa formasi: faqat ism + telefon raqami.
@@ -59,7 +59,7 @@ export function ContactForm({ className }: { className?: string }) {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className={cn("flex flex-col items-center gap-2 px-2 py-8 text-center", className)}
         >
-          <span className="grid h-12 w-12 place-items-center rounded-full bg-accent-500/15 text-accent-100">
+          <span className="grid h-12 w-12 place-items-center border border-line-strong text-white">
             <Check className="h-6 w-6" />
           </span>
           <h3 className="font-display text-xl text-white">Zayavka qabul qilindi</h3>
@@ -87,14 +87,14 @@ export function ContactForm({ className }: { className?: string }) {
           />
 
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="cf-name" className="text-[13px] text-white/50">
+            <label htmlFor="cf-name" className="text-[13px] text-muted">
               Ismingiz
             </label>
             <input id="cf-name" name="name" className={inputCls} placeholder="Ism Familiya" />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="cf-contact" className="text-[13px] text-white/50">
+            <label htmlFor="cf-contact" className="text-[13px] text-muted">
               Telefon raqamingiz
             </label>
             <input
