@@ -18,7 +18,7 @@ export function ContactCTA() {
           <SectionBadge icon={Mail} label="Aloqa" />
         </Reveal>
         <Reveal delay={0.08}>
-          <h2 className="mx-auto max-w-[760px] font-display text-heading font-semibold text-white">
+          <h2 className="mx-auto max-w-[700px] font-display text-heading font-bold text-white">
             Biznesingizni premium darajaga olib chiqamiz
           </h2>
         </Reveal>

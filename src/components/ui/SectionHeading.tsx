@@ -33,7 +33,7 @@ export function SectionHeading({
       <Reveal
         as="div"
         delay={0.08}
-        className="mx-auto max-w-[760px] font-display text-heading font-semibold text-white"
+        className="mx-auto max-w-[700px] font-display text-heading font-bold text-white"
       >
         {title}
       </Reveal>
@@ -41,7 +41,7 @@ export function SectionHeading({
       {description && (
         <Reveal
           delay={0.16}
-          className="mx-auto mt-8 max-w-[680px] text-balance text-subheading text-muted"
+          className="mx-auto mt-8 max-w-[650px] text-balance text-subheading text-muted"
         >
           {description}
         </Reveal>
