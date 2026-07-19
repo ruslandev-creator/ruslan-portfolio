@@ -5,7 +5,7 @@
 export const site = {
   name: "Ruscodit",
   wordmark: "Ruscodit",
-  role: "Premium veb-dizayner",
+  role: "Premium veb-dizayn studiyasi",
   domain: "https://ruslan.studio",
   location: "Toshkent, O'zbekiston",
   phone: "+998 70 018 88 60",

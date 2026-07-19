@@ -195,9 +195,9 @@ export type Plan = {
 
 export const plans: Plan[] = [
   {
-    name: "Starter",
-    price: "$450",
-    cadence: "dan boshlab",
+    name: "Start",
+    price: "$150",
+    cadence: "bir martalik",
     tagline: "Kichik biznes va shaxsiy brendlar uchun",
     features: [
       "1 sahifali landing",
@@ -206,13 +206,13 @@ export const plans: Plan[] = [
       "Asosiy SEO sozlamalari",
       "5 kunda tayyor",
     ],
-    cta: "Boshlash",
+    cta: "Ishni boshlash",
   },
   {
-    name: "Business",
+    name: "Pro",
     price: "$900",
     cadence: "dan boshlab",
-    tagline: "Rivojlanayotgan kompaniyalar uchun eng mashhur tanlov",
+    tagline: "Rivojlanayotgan kompaniyalar uchun eng ommabop tanlov",
     features: [
       "Ko'p bo'limli landing",
       "Maxsus animatsiyalar",
@@ -222,10 +222,10 @@ export const plans: Plan[] = [
       "10 kunda tayyor",
     ],
     featured: true,
-    cta: "Eng ko'p tanlangan",
+    cta: "Ishni boshlash",
   },
   {
-    name: "Premium",
+    name: "Business",
     price: "$1 800",
     cadence: "dan boshlab",
     tagline: "Bozorda yetakchi bo'lishni istaganlar uchun",
@@ -237,7 +237,7 @@ export const plans: Plan[] = [
       "Premium qo'llab-quvvatlash (30 kun)",
       "Ustuvor ishlab chiqish",
     ],
-    cta: "Bog'lanish",
+    cta: "Ishni boshlash",
   },
 ];
 
@@ -245,15 +245,15 @@ export const plans: Plan[] = [
 export const faqs = [
   {
     q: "Sayt qancha vaqtda tayyor bo'ladi?",
-    a: "Oddiy landing 8 soatdan tayyor. Kattaroq loyihalar brifga qarab kelishiladi — muddatni oldindan aniq aytaman.",
+    a: "Oddiy landing 8 soatdan tayyor. Kattaroq loyihalar brifga qarab kelishiladi — muddatni oldindan aniq aytamiz.",
   },
   {
     q: "Narx qancha?",
-    a: "Bo'limlar soni va murakkablikka bog'liq. Tanishuvdan so'ng aniq va yakuniy taklif beraman — yashirin to'lovlar yo'q.",
+    a: "Bo'limlar soni va murakkablikka bog'liq. Tanishuvdan so'ng aniq va yakuniy taklif beramiz — yashirin to'lovlar yo'q.",
   },
   {
     q: "Saytni keyin o'zim tahrirlay olamanmi?",
-    a: "Ha. Xohishingizga ko'ra CMS ulayman — matn va rasmlarni kod bilmasdan o'zingiz yangilaysiz.",
+    a: "Ha. Xohishingizga ko'ra CMS ulaymiz — matn va rasmlarni kod bilmasdan o'zingiz yangilaysiz.",
   },
   {
     q: "To'lov qanday?",

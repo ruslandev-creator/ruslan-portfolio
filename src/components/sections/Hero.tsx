@@ -50,7 +50,7 @@ export function Hero() {
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.55 }}
               className="mt-8 max-w-xl text-subheading text-muted"
             >
-              Men yaratgan saytlar boshqa saytlardan{" "}
+              Biz yaratgan saytlar boshqa saytlardan{" "}
               <span className="text-white">3 barobar tezroq</span> ishlaydi. Biznesingiz qimmat va
               ishonchli ko&apos;rinadi.
             </motion.p>

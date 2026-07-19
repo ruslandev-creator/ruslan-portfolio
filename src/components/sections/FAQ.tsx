@@ -17,7 +17,7 @@ export function FAQ() {
           align="left"
           eyebrow="Savol-javob"
           title={<>Ko&apos;p beriladigan savollar</>}
-          description="Javobini topa olmadingizmi? To'g'ridan-to'g'ri yozing — 24 soat ichida javob beraman."
+          description="Javobini topa olmadingizmi? To'g'ridan-to'g'ri yozing — 24 soat ichida javob beramiz."
         />
 
         <div className="mt-14 border-t border-line">

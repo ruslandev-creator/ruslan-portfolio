@@ -26,7 +26,7 @@ export function ContactCTA() {
             </Reveal>
             <Reveal delay={0.16}>
               <p className="mt-6 max-w-md text-subheading text-muted">
-                Ism va telefon raqamingizni qoldiring — 5 daqiqada aloqaga chiqaman.
+                Ism va telefon raqamingizni qoldiring — 5 daqiqada aloqaga chiqamiz.
               </p>
             </Reveal>
 

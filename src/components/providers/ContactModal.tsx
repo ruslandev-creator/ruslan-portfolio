@@ -76,7 +76,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
               <p className="eyebrow">Ariza qoldiring</p>
               <h2 className="mt-3 font-display text-2xl text-white">Ishni boshlaymiz</h2>
               <p className="mt-2 text-[15px] text-muted">
-                Ism va telefon raqamingizni qoldiring — 5 daqiqada aloqaga chiqaman.
+                Ism va telefon raqamingizni qoldiring — 5 daqiqada aloqaga chiqamiz.
               </p>
               <div className="mt-6">
                 <ContactForm />

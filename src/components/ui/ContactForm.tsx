@@ -65,7 +65,7 @@ export function ContactForm({ className }: { className?: string }) {
           </span>
           <h3 className="font-display text-xl text-white">Zayavka qabul qilindi</h3>
           <p className="max-w-xs text-[15px] text-white/55">
-            5 daqiqada aloqaga chiqaman.
+            5 daqiqada aloqaga chiqamiz.
           </p>
         </motion.div>
       ) : (

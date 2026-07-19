@@ -34,16 +34,19 @@ export function Pricing() {
               key={plan.name}
               variants={fadeUp}
               className={cn(
-                "flex flex-col p-6 lg:p-8",
+                "relative flex flex-col p-6 lg:p-8",
                 i > 0 && "border-t border-line lg:border-l lg:border-t-0",
                 plan.featured && "bg-ink-900",
               )}
             >
+              {plan.featured && (
+                <span aria-hidden className="absolute inset-x-0 top-0 h-0.5 bg-white" />
+              )}
               <div className="flex items-center justify-between">
                 <h3 className="font-display text-lg text-white">{plan.name}</h3>
                 {plan.featured && (
-                  <span className="border border-line-strong px-2 py-0.5 text-[11px] uppercase tracking-[0.14em] text-white">
-                    Mashhur
+                  <span className="border border-white/70 px-2 py-0.5 text-[11px] uppercase tracking-[0.14em] text-white">
+                    Ommabop
                   </span>
                 )}
               </div>
